@@ -1,0 +1,16 @@
+import sys
+
+argc = len(sys.argv)
+if argc == 1:
+    f = sys.stdin
+elif argc == 2:
+try:
+    f = open(sys.argv[1])
+except FileNotFoundError:
+    print("Error: open file", file=sys.stderr)
+    sys.exit(1)
+
+count = 0
+for line in f:
+    count = count + 1
+    print "%d: %s" % (count, line)
